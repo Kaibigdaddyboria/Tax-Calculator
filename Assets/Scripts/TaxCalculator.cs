@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using SpeechLib;
 using System.Threading.Tasks;
+using TMPro;
+using System;
 
 public class TaxCalculator : MonoBehaviour
 {
@@ -9,10 +11,12 @@ public class TaxCalculator : MonoBehaviour
 
     // Variables
     bool textToSpeechEnabled = true;
-
+    public TextMeshProUGUI grosssalary;
+    public TextMeshProUGUI payperiod;
     private void Start()
     {
-        Speak("Welcome to the A.T.O. Tax Calculator");
+        //Speak("Welcome to the A.T.O. Tax Calculator");
+        print(CalculateIncomeTax(200000));
     }
 
     // Run this function on the click event of your 'Calculate' button
@@ -36,23 +40,42 @@ public class TaxCalculator : MonoBehaviour
 
     private double GetGrossSalary()
     {
-        // Get from user. E.g. input box
-        // Validate the input (ensure it is a positive, valid number)
-        double grossYearlySalary = 1000;
-        return grossYearlySalary;
+
+        double grossYearlySalary;
+        if (Double.TryParse(grosssalary.text, out grossYearlySalary) && grossYearlySalary > 0)
+        {
+            return grossYearlySalary;
+        }
+        else
+        {
+            grosssalary.text = "Invalid Input";
+            return grossYearlySalary = 0;
+        }
+        
     }
 
     private string GetSalaryPayPeriod()
     {
-        // Get from user. E.g. combobox or radio buttons
-        string salaryPayPeriod = "weekly";
+        string salaryPayPeriod = payperiod.text;
         return salaryPayPeriod;
     }
 
     private double CalculateGrossYearlySalary(double grossSalaryInput, string salaryPayPeriod)
+    
     {
-        // This is a stub, replace with the real calculation and return the result
-        double grossYearlySalary = 50000;
+        double grossYearlySalary = 0;
+        if (salaryPayPeriod == "yearly")
+        {
+            grossYearlySalary = grossSalaryInput;
+        }
+        else if (salaryPayPeriod == "monthly")
+        {
+            grossYearlySalary = grossSalaryInput * 12;
+        }
+        else if (salaryPayPeriod == "weekly")
+        {
+            grossYearlySalary = grossSalaryInput * 52;
+        }
         return grossYearlySalary;
     }
 
@@ -76,6 +99,31 @@ public class TaxCalculator : MonoBehaviour
     {
         // This is a stub, replace with the real calculation and return the result
         double incomeTaxPaid = 15000;
+        if (grossYearlySalary < 18200)
+        {
+            return grossYearlySalary;
+        }
+        else if (grossYearlySalary > 18200 && grossYearlySalary < 45000)
+        {
+            grossYearlySalary = (grossYearlySalary - 18200) * 0.19;
+            return grossYearlySalary;
+        }
+        else if (grossYearlySalary > 45000 && grossYearlySalary < 120000)
+        {
+            grossYearlySalary = (grossYearlySalary - 45000) * 0.325 + 5092;
+            return grossYearlySalary;
+        }
+        else if (grossYearlySalary > 120000 && grossYearlySalary < 180000)
+        {
+            grossYearlySalary = (grossYearlySalary - 120000) * 0.337 + 29467;
+            return grossYearlySalary;
+        }
+        else if (grossYearlySalary > 180000)
+        {
+            grossYearlySalary = (grossYearlySalary - 180000) * 0.450 + 51667;
+            return grossYearlySalary;
+        }
+
         return incomeTaxPaid;
     }
 
