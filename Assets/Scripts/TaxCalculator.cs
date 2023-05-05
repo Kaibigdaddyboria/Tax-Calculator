@@ -13,13 +13,17 @@ public class TaxCalculator : MonoBehaviour
     bool textToSpeechEnabled = true;
     public TextMeshProUGUI grosssalary;
     public TextMeshProUGUI payperiod;
+    public TextMeshProUGUI grossyearlysalary:
+    public TextMeshProUGUI medicarelevy;
+    public TextMeshProUGUI incometax;
+    public TextMeshProUGUI netincome;
     private void Start()
     {
         //Speak("Welcome to the A.T.O. Tax Calculator");
         print(CalculateIncomeTax(200000));
     }
 
-    // Run this function on the click event of your 'Calculate' button
+    // Run this function on the click event of 'Calculate' button
     public void Calculate()
     {
         // Initialisation of variables
@@ -81,24 +85,21 @@ public class TaxCalculator : MonoBehaviour
 
     private double CalculateNetIncome(double grossYearlySalary, ref double medicareLevyPaid, ref double incomeTaxPaid)
     {
-        // This is a stub, replace with the real calculation and return the result
         medicareLevyPaid = CalculateMedicareLevy(grossYearlySalary);
         incomeTaxPaid = CalculateIncomeTax(grossYearlySalary);
-        double netIncome = 33000;        
+        double netIncome = grossYearlySalary - (incomeTaxPaid + medicareLevyPaid);        
         return netIncome;
     }
 
     private double CalculateMedicareLevy(double grossYearlySalary)
     {
-        // This is a stub, replace with the real calculation and return the result
-        double medicareLevyPaid = 2000;        
+        double medicareLevyPaid = grossYearlySalary * MEDICARE_LEVY;
         return medicareLevyPaid;
     }
 
     private double CalculateIncomeTax(double grossYearlySalary)
     {
-        // This is a stub, replace with the real calculation and return the result
-        double incomeTaxPaid = 15000;
+        double incomeTaxPaid = 0;
         if (grossYearlySalary < 18200)
         {
             return grossYearlySalary;
@@ -127,12 +128,13 @@ public class TaxCalculator : MonoBehaviour
         return incomeTaxPaid;
     }
 
-    private void OutputResults(double medicareLevyPaid, double incomeTaxPaid, double netIncome)
+    private void OutputResults(double medicareLevyPaid, double incomeTaxPaid, double netIncome, double )
     {
         // Output the following to the GUI
         // "Medicare levy paid: $" + medicareLevyPaid.ToString("F2");
         // "Income tax paid: $" + incomeTaxPaid.ToString("F2");
         // "Net income: $" + netIncome.ToString("F2");
+        grossyearlysalary.text = 
     }
 
     // Text to Speech
