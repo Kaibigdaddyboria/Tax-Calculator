@@ -13,7 +13,7 @@ public class TaxCalculator : MonoBehaviour
     bool textToSpeechEnabled = true;
     public TextMeshProUGUI grosssalary;
     public TextMeshProUGUI payperiod;
-    public TextMeshProUGUI grossyearlysalary:
+    public TextMeshProUGUI grossyearlysalary;
     public TextMeshProUGUI medicarelevy;
     public TextMeshProUGUI incometax;
     public TextMeshProUGUI netincome;
@@ -39,7 +39,7 @@ public class TaxCalculator : MonoBehaviour
         double netIncome = CalculateNetIncome(grossYearlySalary, ref medicareLevyPaid, ref incomeTaxPaid);
 
         // Output
-        OutputResults(medicareLevyPaid, incomeTaxPaid, netIncome);
+        OutputResults(medicareLevyPaid, incomeTaxPaid, netIncome, grossYearlySalary);
     }
 
     private double GetGrossSalary()
@@ -128,13 +128,17 @@ public class TaxCalculator : MonoBehaviour
         return incomeTaxPaid;
     }
 
-    private void OutputResults(double medicareLevyPaid, double incomeTaxPaid, double netIncome, double )
+    private void OutputResults(double medicareLevyPaid, double incomeTaxPaid, double netIncome, double grossYearlySalary)
     {
         // Output the following to the GUI
         // "Medicare levy paid: $" + medicareLevyPaid.ToString("F2");
         // "Income tax paid: $" + incomeTaxPaid.ToString("F2");
         // "Net income: $" + netIncome.ToString("F2");
-        grossyearlysalary.text = 
+        grossyearlysalary.text = grossYearlySalary.ToString();
+        medicarelevy.text = medicareLevyPaid.ToString();
+        incometax.text = incomeTaxPaid.ToString();
+        netincome.text = netIncome.ToString();
+
     }
 
     // Text to Speech
