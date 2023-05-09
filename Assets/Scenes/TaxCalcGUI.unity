@@ -2000,9 +2000,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fcf55b6bfc3d04fb56cc2f2fbd4517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grosssalary: {fileID: 0}
+  grosssalary: {fileID: 1000548564}
   payperiod: {fileID: 0}
-  grossyearlysalary: {fileID: 0}
+  grossyearlysalary: {fileID: 710811670}
   medicarelevy: {fileID: 0}
   incometax: {fileID: 0}
   netincome: {fileID: 0}
@@ -3674,7 +3674,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1674777552}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1151694037}
+        m_TargetAssemblyTypeName: TaxCalculator, Assembly-CSharp
+        m_MethodName: Calculate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1674777552
 MonoBehaviour:
   m_ObjectHideFlags: 0

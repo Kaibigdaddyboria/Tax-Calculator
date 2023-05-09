@@ -11,9 +11,9 @@ public class TaxCalculator : MonoBehaviour
 
     // Variables
     bool textToSpeechEnabled = true;
-    public TextMeshProUGUI grosssalary;
-    public TextMeshProUGUI payperiod;
-    public TextMeshProUGUI grossyearlysalary;
+    public TMP_InputField grosssalary;
+    public TMP_Dropdown payperiod;
+    public TMP_InputField grossyearlysalary;
     public TextMeshProUGUI medicarelevy;
     public TextMeshProUGUI incometax;
     public TextMeshProUGUI netincome;
@@ -59,7 +59,7 @@ public class TaxCalculator : MonoBehaviour
 
     private string GetSalaryPayPeriod()
     {
-        string salaryPayPeriod = payperiod.text;
+        string salaryPayPeriod = payperiod.itemText.ToString();
         return salaryPayPeriod;
     }
 
