@@ -41,7 +41,6 @@ public class TaxCalculator : MonoBehaviour
         // Output
         OutputResults(medicareLevyPaid, incomeTaxPaid, netIncome, grossYearlySalary);
     }
-
     private double GetGrossSalary()
     {
 
