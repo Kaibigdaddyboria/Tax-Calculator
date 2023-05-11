@@ -2001,11 +2001,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grosssalary: {fileID: 1000548564}
-  payperiod: {fileID: 0}
+  payperiod: {fileID: 1420476051}
   grossyearlysalary: {fileID: 710811670}
-  medicarelevy: {fileID: 0}
-  incometax: {fileID: 0}
-  netincome: {fileID: 0}
+  medicarelevy: {fileID: 400411273}
+  incometax: {fileID: 605473780}
+  netincome: {fileID: 1602194455}
 --- !u!114 &1151694038
 MonoBehaviour:
   m_ObjectHideFlags: 0

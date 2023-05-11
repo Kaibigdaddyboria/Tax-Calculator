@@ -14,13 +14,12 @@ public class TaxCalculator : MonoBehaviour
     public TMP_InputField grosssalary;
     public TMP_Dropdown payperiod;
     public TMP_InputField grossyearlysalary;
-    public TextMeshProUGUI medicarelevy;
-    public TextMeshProUGUI incometax;
-    public TextMeshProUGUI netincome;
+    public TMP_InputField medicarelevy;
+    public TMP_InputField incometax;
+    public TMP_InputField netincome;
     private void Start()
     {
         //Speak("Welcome to the A.T.O. Tax Calculator");
-        print(CalculateIncomeTax(200000));
     }
 
     // Run this function on the click event of 'Calculate' button
@@ -59,7 +58,8 @@ public class TaxCalculator : MonoBehaviour
 
     private string GetSalaryPayPeriod()
     {
-        string salaryPayPeriod = payperiod.itemText.ToString();
+        string salaryPayPeriod = payperiod.value.ToString();
+        print(salaryPayPeriod);
         return salaryPayPeriod;
     }
 
@@ -67,15 +67,15 @@ public class TaxCalculator : MonoBehaviour
     
     {
         double grossYearlySalary = 0;
-        if (salaryPayPeriod == "yearly")
+        if (salaryPayPeriod == "0")
         {
             grossYearlySalary = grossSalaryInput;
         }
-        else if (salaryPayPeriod == "monthly")
+        else if (salaryPayPeriod == "1")
         {
             grossYearlySalary = grossSalaryInput * 12;
         }
-        else if (salaryPayPeriod == "weekly")
+        else if (salaryPayPeriod == "2")
         {
             grossYearlySalary = grossSalaryInput * 52;
         }
