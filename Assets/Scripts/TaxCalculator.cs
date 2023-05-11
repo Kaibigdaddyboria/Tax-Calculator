@@ -141,7 +141,7 @@ public class TaxCalculator : MonoBehaviour
     }
 
     // Text to Speech
-    private async void Speak(string textToSpeech)
+    public async void Speak(string textToSpeech)
     {
         if(textToSpeechEnabled)
         {
