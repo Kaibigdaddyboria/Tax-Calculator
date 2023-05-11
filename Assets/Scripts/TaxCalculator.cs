@@ -101,27 +101,27 @@ public class TaxCalculator : MonoBehaviour
         double incomeTaxPaid = 0;
         if (grossYearlySalary < 18200)
         {
-            return grossYearlySalary;
+            return incomeTaxPaid;
         }
-        else if (grossYearlySalary > 18200 && grossYearlySalary < 45000)
+        else if (grossYearlySalary >= 18200 && grossYearlySalary < 45000)
         {
-            grossYearlySalary = (grossYearlySalary - 18200) * 0.19;
-            return grossYearlySalary;
+            incomeTaxPaid = (grossYearlySalary - 18200) * 0.19;
+            return incomeTaxPaid;
         }
-        else if (grossYearlySalary > 45000 && grossYearlySalary < 120000)
+        else if (grossYearlySalary >= 45000 && grossYearlySalary < 120000)
         {
-            grossYearlySalary = (grossYearlySalary - 45000) * 0.325 + 5092;
-            return grossYearlySalary;
+            incomeTaxPaid = (grossYearlySalary - 45000) * 0.325 + 5092;
+            return incomeTaxPaid;
         }
-        else if (grossYearlySalary > 120000 && grossYearlySalary < 180000)
+        else if (grossYearlySalary >= 120000 && grossYearlySalary < 180000)
         {
-            grossYearlySalary = (grossYearlySalary - 120000) * 0.337 + 29467;
-            return grossYearlySalary;
+            incomeTaxPaid = (grossYearlySalary - 120000) * 0.337 + 29467;
+            return incomeTaxPaid;
         }
-        else if (grossYearlySalary > 180000)
+        else if (grossYearlySalary >= 180000)
         {
-            grossYearlySalary = (grossYearlySalary - 180000) * 0.450 + 51667;
-            return grossYearlySalary;
+            incomeTaxPaid = (grossYearlySalary - 180000) * 0.450 + 51667;
+            return incomeTaxPaid;
         }
 
         return incomeTaxPaid;
