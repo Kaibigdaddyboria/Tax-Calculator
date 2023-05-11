@@ -25,7 +25,7 @@ public class TaxCalculator : MonoBehaviour
     // Run this function on the click event of 'Calculate' button
     public void Calculate()
     {
-        // Initialisation of variables
+        // Initialisation of variablesef
         double medicareLevyPaid = 0;
         double incomeTaxPaid = 0;
 
