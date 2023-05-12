@@ -22,6 +22,15 @@ public class TaxCalculator : MonoBehaviour
         Speak("Welcome to the A.T.O. Tax Calculator. Please enter your salary.");
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Return))
+        {
+            Speak("Please select 1 for yearly, 2 for monthly and 3 for weekly ");
+            
+        }
+    }
+
     // Run this function on the click event of 'Calculate' button
     public void Calculate()
     {
