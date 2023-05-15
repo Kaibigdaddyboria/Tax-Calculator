@@ -17,19 +17,48 @@ public class TaxCalculator : MonoBehaviour
     public TMP_InputField medicarelevy;
     public TMP_InputField incometax;
     public TMP_InputField netincome;
+    public int stage = 0;
+
     private void Start()
     {
-        Speak("Welcome to the A.T.O. Tax Calculator. Please enter your salary.");
+        Speak("Please enter your salary. and then press enter.");
+        grosssalary.Select();
     }
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Return))
+        if(Input.GetKeyUp(KeyCode.Return ) && stage == 0)
         {
-            Speak("Please select 1 for yearly, 2 for monthly and 3 for weekly ");
-            
+            Speak("Please select 1 for yearly, 2 for monthly and 3 for weekly");
+            grosssalary.readOnly = true;
+            stage = 1;
+             
         }
-    }
+        if(stage == 1)
+        {
+            if (Input.GetKeyUp(KeyCode.Alpha1))
+            {
+                payperiod.value = 0;
+                Speak("you have chosen Yearly please press Tab to calculate");
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha2))
+            {
+                payperiod.value = 1;
+                Speak("you have chosen Monthly please press Tab to calculate");
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha3))
+            {
+                payperiod.value = 2;
+                Speak("you have chosen Weekly please press Tab to calculate");
+            }
+            if (Input.GetKeyUp(KeyCode.Tab))
+            {
+                Calculate();
+                stage = 2;
+            }
+        }
+        
+    }   
 
     // Run this function on the click event of 'Calculate' button
     public void Calculate()
