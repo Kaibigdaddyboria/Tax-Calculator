@@ -19,7 +19,7 @@ public class TaxCalculator : MonoBehaviour
     public TMP_InputField netincome;
     private void Start()
     {
-        //Speak("Welcome to the A.T.O. Tax Calculator");
+        Speak("Welcome to the A.T.O. Tax Calculator. Please enter your salary.");
     }
 
     private void Update()
@@ -40,6 +40,7 @@ public class TaxCalculator : MonoBehaviour
 
         // Input
         double grossSalaryInput = GetGrossSalary();
+        Speak("Please press 1 for yearly. Press 2 for monthly, or press 3 for weekly");
         string salaryPayPeriod = GetSalaryPayPeriod();
 
         // Calculations
@@ -138,10 +139,6 @@ public class TaxCalculator : MonoBehaviour
 
     private void OutputResults(double medicareLevyPaid, double incomeTaxPaid, double netIncome, double grossYearlySalary)
     {
-        // Output the following to the GUI
-        // "Medicare levy paid: $" + medicareLevyPaid.ToString("F2");
-        // "Income tax paid: $" + incomeTaxPaid.ToString("F2");
-        // "Net income: $" + netIncome.ToString("F2");
         grossyearlysalary.text = grossYearlySalary.ToString();
         medicarelevy.text = medicareLevyPaid.ToString();
         incometax.text = incomeTaxPaid.ToString();
